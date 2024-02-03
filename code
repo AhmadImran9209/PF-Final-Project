@@ -1,0 +1,927 @@
+#include <iostream>
+#include <string> 
+#include <iomanip> 
+using namespace std;
+string a1 = { "o     o     o     o" };
+string a2 = { "                   " };
+string a3 = { "o     o     o     o" };
+string a4 = { "                   " };
+string a5 = { "o     o     o     o" };
+string a6 = { "                   " };
+string a7 = { "o     o     o     o" };
+int s_p1 = 0, s_p2 = 0;
+string p1, p2;
+
+void print() {
+    cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a1[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a2[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a3[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a4[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a5[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a6[i];
+    }
+    cout << endl; cout.width(50);
+    for (int i = 0; i < 19; i++) {
+        cout << a7[i];
+    }
+    cout << endl;
+}
+
+void player1() {
+    //---------------------TO GET LINE NUMBER INPUT----------------------------
+    string c;
+    cout << "\t\t\t\tPress X for horizontal and Y for vertical: ";
+    cin >> c;
+    cout << endl;
+    while (c != "x" && c != "X" && c != "y" && c != "Y") {
+        cout << "\t\t\t\tERROR: Input Again: ";
+        cin.clear();
+        cin >> c;
+        cout << endl;
+    }
+
+
+    // HORIZONTAL LINES
+    if (c == "x" || c == "X") {
+        cout << "\t\t\t\tEnter horizontal line number: ";
+        int xline;
+        cin >> xline;
+        cout << endl;
+        while (xline < 1 || xline > 12) {
+            cin.ignore();
+            cout << "\t\t\t\tINVALID: Input Again: ";
+            cin >> xline;
+            cout << endl;
+        }
+        if (xline == 1) {
+            if (a1[1] == ' ') {
+                a1.erase(1, 5);
+                a1.insert(1, "-----");
+                if ((a2[0] == '|') && (a2[6] == '|') && (a3[1] == '-')) {
+                    a2[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 2) {
+            if (a1[7] == ' ') {
+                a1.erase(7, 5);
+                a1.insert(7, "-----");
+                if ((a2[6] == '|') && (a2[12] == '|') && (a3[7] == '-')) {
+                    a2[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 3) {
+            if (a1[13] == ' ') {
+                a1.erase(13, 5);
+                a1.insert(13, "-----");
+                if ((a2[12] == '|') && (a2[18] == '|') && (a3[13] == '-')) {
+                    a2[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 4) {
+            if (a3[1] == ' ') {
+                a3.erase(1, 5);
+                a3.insert(1, "-----");
+                if ((a2[0] == '|') && (a2[6] == '|') && (a1[1] == '-')) {
+                    a2[3] = p1[0];
+                    s_p1++;
+                }
+                if ((a4[0] == '|') && (a4[6] == '|') && (a5[1] == '-')) {
+                    a4[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 5) {
+            if (a3[7] == ' ') {
+                a3.erase(7, 5);
+                a3.insert(7, "-----");
+                if ((a2[6] == '|') && (a2[12] == '|') && (a1[7] == '-')) {
+                    a2[9] = p1[0];
+                    s_p1++;
+                }
+                if ((a4[6] == '|') && (a4[12] == '|') && (a5[7] == '-')) {
+                    a4[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 6) {
+            if (a3[13] == ' ') {
+                a3.erase(13, 5);
+                a3.insert(13, "-----");
+                if ((a2[12] == '|') && (a2[18] == '|') && (a1[13] == '-')) {
+                    a2[15] = p1[0];
+                    s_p1++;
+                }
+                if ((a4[12] == '|') && (a4[18] == '|') && (a5[13] == '-')) {
+                    a4[13] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 7) {
+            if (a5[1] == ' ') {
+                a5.erase(1, 5);
+                a5.insert(1, "-----");
+                if ((a4[0] == '|') && (a4[6] == '|') && (a3[1] == '-')) {
+                    a4[3] = p1[0];
+                    s_p1++;
+                }
+                if ((a6[0] == '|') && (a6[6] == '|') && (a7[1] == '-')) {
+                    a6[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 8) {
+            if (a5[7] == ' ') {
+                a5.erase(7, 5);
+                a5.insert(7, "-----");
+                if ((a4[6] == '|') && (a4[12] == '|') && (a3[7] == '-')) {
+                    a4[9] = p1[0];
+                    s_p1++;
+                }
+                if ((a6[6] == '|') && (a6[12] == '|') && (a7[7] == '-')) {
+                    a6[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 9) {
+            if (a5[13] == ' ') {
+                a5.erase(13, 5);
+                a5.insert(13, "-----");
+                if ((a4[12] == '|') && (a4[18] == '|') && (a3[13] == '-')) {
+                    a4[15] = p1[0];
+                    s_p1++;
+                }
+                if ((a6[12] == '|') && (a6[18] == '|') && (a7[13] == '-')) {
+                    a6[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 10) {
+            if (a7[1] == ' ') {
+                a7.erase(1, 5);
+                a7.insert(1, "-----");
+                if ((a6[0] == '|') && (a6[6] == '|') && (a5[1] == '-')) {
+                    a6[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 11) {
+            if (a7[7] == ' ') {
+                a7.erase(7, 5);
+                a7.insert(7, "-----");
+                if ((a6[6] == '|') && (a6[12] == '|') && (a5[7] == '-')) {
+                    a6[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 12) {
+            if (a7[13] == ' ') {
+                a7.erase(13, 5);
+                a7.insert(13, "-----");
+                if ((a6[12] == '|') && (a6[18] == '|') && (a5[13] == '-')) {
+                    a6[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+    }
+
+    // VERTICAL LINES    
+    else if (c == "y" || c == "Y") {
+        cout << "\t\t\t\tEnter vertical line number: ";
+        int yline;
+        cin >> yline;
+        cout << endl;
+        while (yline < 1 || yline > 12) {
+            cin.ignore();
+            cout << "\t\t\t\tINVALID: Input Again: ";
+            cin >> yline;
+            cout << endl;
+        }
+
+        if (yline == 1) {
+            if (a2[0] == ' ') {
+                a2[0] = '|';
+                if ((a1[1] == '-') && (a3[1] == '-') && (a2[6] == '|')) {
+                    a2[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 2) {
+            if (a2[6] == ' ') {
+                a2[6] = '|';
+                if ((a1[1] == '-') && (a3[1] == '-') && (a2[0] == '|')) {
+                    a2[3] = p1[0];
+                    s_p2++;
+                }
+                if ((a1[7] == '-') && (a3[7] == '-') && (a2[12] == '|')) {
+                    a2[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 3) {
+            if (a2[12] == ' ') {
+                a2[12] = '|';
+                if ((a1[7] == '-') && (a3[7] == '-') && (a2[6] == '|')) {
+                    a2[9] = p1[0];
+                    s_p1++;
+                }
+                if ((a1[13] == '-') && (a3[13] == '-') && (a2[18] == '|')) {
+                    a2[15] = p2[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 4) {
+            if (a2[18] == ' ') {
+                a2[18] = '|';
+                if ((a1[13] == '-') && (a3[13] == '-') && (a2[12] == '|')) {
+                    a2[15] = p2[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 5) {
+            if (a4[0] == ' ') {
+                a4[0] = '|';
+                if ((a3[1] == '-') && (a5[1] == '-') && (a4[6] == '|')) {
+                    a4[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 6) {
+            if (a4[6] == ' ') {
+                a4[6] = '|';
+                if ((a3[1] == '-') && (a5[1] == '-') && (a4[0] == '|')) {
+                    a4[3] = p1[0];
+                    s_p2++;
+                }
+                if ((a3[7] == '-') && (a5[7] == '-') && (a4[12] == '|')) {
+                    a4[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 7) {
+            if (a4[12] == ' ') {
+                a4[12] = '|';
+                if ((a3[7] == '-') && (a5[7] == '-') && (a4[6] == '|')) {
+                    a4[9] = p1[0];
+                    s_p2++;
+                }
+                if ((a3[13] == '-') && (a5[13] == '-') && (a4[18] == '|')) {
+                    a4[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 8) {
+            if (a4[18] == ' ') {
+                a4[18] = '|';
+                if ((a3[13] == '-') && (a5[13] == '-') && (a4[12] == '|')) {
+                    a4[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 9) {
+            if (a6[0] == ' ') {
+                a6[0] = '|';
+                if ((a5[1] == '-') && (a7[1] == '-') && (a6[6] == '|')) {
+                    a6[3] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 10) {
+            if (a6[6] == ' ') {
+                a6[6] = '|';
+                if ((a5[1] == '-') && (a7[1] == '-') && (a6[0] == '|')) {
+                    a6[3] = p1[0];
+                    s_p1++;
+                }
+                if ((a5[7] == '-') && (a7[7] == '-') && (a6[12] == '|')) {
+                    a6[9] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 11) {
+            if (a6[12] == ' ') {
+                a6[12] = '|';
+                if ((a5[7] == '-') && (a7[7] == '-') && (a6[6] == '|')) {
+                    a6[9] = p1[0];
+                    s_p1++;
+                }
+                if ((a5[13] == '-') && (a7[13] == '-') && (a6[18] == '|')) {
+                    a6[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 12) {
+            if (a6[18] == ' ') {
+                a6[18] = '|';
+                if ((a5[13] == '-') && (a7[13] == '-') && (a6[12] == '|')) {
+                    a6[15] = p1[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+
+    }
+
+    system("cls");
+}
+
+void player2() {
+    //---------------------TO GET LINE NUMBER INPUT----------------------------
+    string c;
+    cout << "\t\t\t\tPress X for horizontal and Y for vertical: ";
+    cin >> c;
+    cout << endl;
+    while (c != "x" && c != "X" && c != "y" && c != "Y") {
+        cout << "\t\t\t\tERROR: Input Again: ";
+        cin.clear();
+        cin >> c;
+        cout << endl;
+    }
+
+    // HORIZONTAL LINES
+    if (c == "x" || c == "X") {
+        cout << "\t\t\t\tEnter horizontal line number: ";
+        int xline;
+        cin >> xline;
+        cout << endl;
+        while (xline < 1 || xline > 12) {
+            cin.ignore();
+            cout << "\t\t\t\tINVALID: Input Again: ";
+            cin >> xline;
+        }
+        if (xline == 1) {
+            if (a1[1] == ' ') {
+                a1.erase(1, 5);
+                a1.insert(1, "-----");
+                if ((a2[0] == '|') && (a2[6] == '|') && (a3[1] == '-')) {
+                    a2[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 2) {
+            if (a1[7] == ' ') {
+                a1.erase(7, 5);
+                a1.insert(7, "-----");
+                if ((a2[6] == '|') && (a2[12] == '|') && (a3[7] == '-')) {
+                    a2[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 3) {
+            if (a1[13] == ' ') {
+                a1.erase(13, 5);
+                a1.insert(13, "-----");
+                if ((a2[12] == '|') && (a2[18] == '|') && (a3[13] == '-')) {
+                    a2[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 4) {
+            if (a3[1] == ' ') {
+                a3.erase(1, 5);
+                a3.insert(1, "-----");
+                if ((a2[0] == '|') && (a2[6] == '|') && (a1[1] == '-')) {
+                    a2[3] = p2[0];
+                    s_p2++;
+                }
+                if ((a4[0] == '|') && (a4[6] == '|') && (a5[1] == '-')) {
+                    a4[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 5) {
+            if (a3[7] == ' ') {
+                a3.erase(7, 5);
+                a3.insert(7, "-----");
+                if ((a2[6] == '|') && (a2[12] == '|') && (a1[7] == '-')) {
+                    a2[9] = p2[0];
+                    s_p2++;
+                }
+                if ((a4[6] == '|') && (a4[12] == '|') && (a5[7] == '-')) {
+                    a4[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 6) {
+            if (a3[13] == ' ') {
+                a3.erase(13, 5);
+                a3.insert(13, "-----");
+                if ((a2[12] == '|') && (a2[18] == '|') && (a1[13] == '-')) {
+                    a2[15] = p2[0];
+                    s_p2++;
+                }
+                if ((a4[12] == '|') && (a4[18] == '|') && (a5[13] == '-')) {
+                    a4[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 7) {
+            if (a5[1] == ' ') {
+                a5.erase(1, 5);
+                a5.insert(1, "-----");
+                if ((a4[0] == '|') && (a4[6] == '|') && (a3[1] == '-')) {
+                    a4[3] = p2[0];
+                    s_p2++;
+                }
+                if ((a6[0] == '|') && (a6[6] == '|') && (a7[1] == '-')) {
+                    a6[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 8) {
+            if (a5[7] == ' ') {
+                a5.erase(7, 5);
+                a5.insert(7, "-----");
+                if ((a4[6] == '|') && (a4[12] == '|') && (a3[7] == '-')) {
+                    a4[9] = p2[0];
+                    s_p2++;
+                }
+                if ((a6[6] == '|') && (a6[12] == '|') && (a7[7] == '-')) {
+                    a6[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 9) {
+            if (a5[13] == ' ') {
+                a5.erase(13, 5);
+                a5.insert(13, "-----");
+                if ((a4[12] == '|') && (a4[18] == '|') && (a3[13] == '-')) {
+                    a4[15] = p2[0];
+                    s_p2++;
+                }
+                if ((a6[12] == '|') && (a6[18] == '|') && (a7[13] == '-')) {
+                    a6[15] = p2[0];
+                    s_p1++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 10) {
+            if (a7[1] == ' ') {
+                a7.erase(1, 5);
+                a7.insert(1, "-----");
+                if ((a6[0] == '|') && (a6[6] == '|') && (a5[1] == '-')) {
+                    a6[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 11) {
+            if (a7[7] == ' ') {
+                a7.erase(7, 5);
+                a7.insert(7, "-----");
+                if ((a6[6] == '|') && (a6[12] == '|') && (a5[7] == '-')) {
+                    a6[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (xline == 12) {
+            if (a7[13] == ' ') {
+                a7.erase(13, 5);
+                a7.insert(13, "-----");
+                if ((a6[12] == '|') && (a6[18] == '|') && (a5[13] == '-')) {
+                    a6[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+    }
+    // VERTICAL LINES
+    else if (c == "y" || c == "Y") {
+        cout << "\t\t\t\tEnter vertical line number: ";
+        int yline;
+        cin >> yline;
+        cout << endl;
+        while (yline < 1 || yline > 12) {
+            cin.ignore();
+            cout << "\t\t\t\tINVALID: Input Again: ";
+            cin >> yline;
+            cout << endl;
+        }
+        if (yline == 1) {
+            if (a2[0] == ' ') {
+                a2[0] = '|';
+                if ((a1[1] == '-') && (a3[1] == '-') && (a2[6] == '|')) {
+                    a2[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 2) {
+            if (a2[6] == ' ') {
+                a2[6] = '|';
+                if ((a1[1] == '-') && (a3[1] == '-') && (a2[0] == '|')) {
+                    a2[3] = p2[0];
+                    s_p2++;
+                }
+                if ((a1[7] == '-') && (a3[7] == '-') && (a2[12] == '|')) {
+                    a2[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 3) {
+            if (a2[12] == ' ') {
+                a2[12] = '|';
+                if ((a1[7] == '-') && (a3[7] == '-') && (a2[6] == '|')) {
+                    a2[9] = p2[0];
+                    s_p2++;
+                }
+                if ((a1[13] == '-') && (a3[13] == '-') && (a2[18] == '|')) {
+                    a2[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 4) {
+            if (a2[18] == ' ') {
+                a2[18] = '|';
+                if ((a1[13] == '-') && (a3[13] == '-') && (a2[12] == '|')) {
+                    a2[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 5) {
+            if (a4[0] == ' ') {
+                a4[0] = '|';
+                if ((a3[1] == '-') && (a5[1] == '-') && (a4[6] == '|')) {
+                    a4[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 6) {
+            if (a4[6] == ' ') {
+                a4[6] = '|';
+                if ((a3[1] == '-') && (a5[1] == '-') && (a4[0] == '|')) {
+                    a4[3] = p2[0];
+                    s_p2++;
+                }
+                if ((a3[7] == '-') && (a5[7] == '-') && (a4[12] == '|')) {
+                    a4[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 7) {
+            if (a4[12] == ' ') {
+                a4[12] = '|';
+                if ((a3[7] == '-') && (a5[7] == '-') && (a4[6] == '|')) {
+                    a4[9] = p2[0];
+                    s_p2++;
+                }
+                if ((a3[13] == '-') && (a5[13] == '-') && (a4[18] == '|')) {
+                    a4[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 8) {
+            if (a4[18] == ' ') {
+                a4[18] = '|';
+                if ((a3[13] == '-') && (a5[13] == '-') && (a4[12] == '|')) {
+                    a4[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 9) {
+            if (a6[0] == ' ') {
+                a6[0] = '|';
+                if ((a5[1] == '-') && (a7[1] == '-') && (a6[6] == '|')) {
+                    a6[3] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 10) {
+            if (a6[6] == ' ') {
+                a6[6] = '|';
+                if ((a5[1] == '-') && (a7[1] == '-') && (a6[0] == '|')) {
+                    a6[3] = p2[0];
+                    s_p2++;
+                }
+                if ((a5[7] == '-') && (a7[7] == '-') && (a6[12] == '|')) {
+                    a6[9] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 11) {
+            if (a6[12] == ' ') {
+                a6[12] = '|';
+                if ((a5[7] == '-') && (a7[7] == '-') && (a6[6] == '|')) {
+                    a6[9] = p2[0];
+                    s_p2++;
+                }
+                if ((a5[13] == '-') && (a7[13] == '-') && (a6[18] == '|')) {
+                    a6[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+        else if (yline == 12) {
+            if (a6[18] == ' ') {
+                a6[18] = '|';
+                if ((a5[13] == '-') && (a7[13] == '-') && (a6[12] == '|')) {
+                    a6[15] = p2[0];
+                    s_p2++;
+                }
+            }
+            else {
+                cout << "\t\t\t\tLine already exists" << endl;
+                system("pause");
+            }
+        }
+
+    }
+    system("cls");
+}
+
+void game() {
+
+    //-----------------------TO DISPLAY THE GRID------------------------
+    print();
+    cout << endl;
+    cout.width(60);
+    cout << "Turn of " << p1 << endl;
+    player1();
+
+    print();
+    cout << endl;
+    cout.width(60);
+    cout << "Turn of " << p2 << endl;
+    player2();
+
+}
+
+int main()
+
+{
+    cout << "Enter the name of first player: "; cin >> p1;
+    cout << "Enter the name of second player: "; cin >> p2;
+
+    int n = 1, i = 0;
+    while (n != 0) {
+        game();
+        if (((a2[3] == p1[0]) || (a2[3] == p2[0])) && ((a2[9] == p1[0]) || (a2[9] == p2[0])) && ((a2[15] == p1[0]) || (a2[15] == p2[0])) && ((a4[3] == p1[0]) || (a4[3] == p2[0])) && ((a4[9] == p1[0]) || (a4[9] == p2[0])) && ((a4[15] == p1[0]) || (a4[15] == p2[0])) && ((a6[3] == p1[0]) || (a6[3] == p2[0])) && ((a6[9] == p1[0]) || (a6[9] == p2[0])) && ((a6[15] == p1[0]) || (a6[15] == p2[0]))) {
+            system("cls");
+            break;
+        }
+    }
+
+    print();
+
+
+    if (s_p1 > s_p2) {
+        cout << endl <<setw(58)<< "Hurrayy! " << p1 << " won!!" << endl;
+    }
+    else if (s_p2 > s_p1) {
+        cout << endl <<setw(58)<< "Hurrayy! " << p2 << " won!!" << endl;
+    }
+    else {
+        cout << endl <<setw(58)<< "IT'S A TIE!!" << endl;
+    }
+
+    system("pause");
+    return 0;
+}
