@@ -30,3 +30,27 @@ Compile the program using a C++ compiler. For example:
 
 ```bash
 g++ dots_and_boxes.cpp -o dots_and_boxes
+
+How to Run
+Run the compiled program:
+
+bash
+Copy code
+./dots_and_boxes
+Example Gameplay
+Here's an example of how the game looks during gameplay:
+
+css
+Copy code
+[Game Board State]
+
+o-----o-----o-----o
+                   |
+o-----o-----o-----o
+                   |
+o-----o-----o-----o
+                   |
+o-----o-----o-----o
+
+Player 1's turn: Enter X for horizontal and Y for vertical: x
+Enter horizontal line number: 1
